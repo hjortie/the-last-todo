@@ -15,6 +15,7 @@ Sidan skall visa ett antal punkter som skall göras. Dessa skall då komma upp p
 - Alla punkter under G
 - Kunna visa även klara händelser och klicka tillbaka den så att de blir oklara igen.
 - Skapa ett formulär som tillåter att en användare skapar nya todos efterhand.
+- Använda lifting state up för att dela upp dina komponenter bättre.
 - Kunna sortera ordningen på dina todos.
 - Implementera ett valfritt grafiskt ramverk till din todolista, t.ex. material ui eller tailwind.
 - Egen css får gärna skrivas och då skall ni ha en bra struktur och använda flex eller grid på ett bra sätt.
@@ -34,8 +35,6 @@ npm run dev
 ```
 
 för att köra projektet.
-
-## Tips
 
 - Det finns många sätt att lösa denna uppgift på. Om ni känner er osäkra på någonting, fråga hellre någon gång för mycket så att ni känner er säkra på vad ni utvecklar.
 - Ni får gärna ändra strukturen i projektet, detta är bara en grund.
