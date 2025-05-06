@@ -5,7 +5,6 @@ export const ShowTodo = (props: TodoProp) => {
     <>
       <li>
         <input
-          id="done"
           type="checkbox"
           checked={props.todo.done}
           onChange={(e) => {

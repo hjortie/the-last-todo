@@ -19,7 +19,7 @@ export const TodoApp = () => {
   };
 
   const toggle = (e: ChangeEvent<HTMLInputElement>, id: number) => {
-    console.log("Toggling todo:", e.target.id, e.target.checked);
+    console.log("Toggling todo:", id, e.target.checked);
     setTodos(
       todos.map((t) => (t.id === id ? { ...t, done: e.target.checked } : t))
     );
