@@ -31,14 +31,34 @@ export const TodoApp = () => {
         <div>
           <h2>Saker att göra:</h2>
           <ul>
-            {todos.map((t) => (
-              <ShowTodo todo={t} key={t.id} toggle={(e) => toggle(e, t.id!)} />
-            ))}
+            {todos.map((t) => {
+              if (t.done === false) {
+                return (
+                  <ShowTodo
+                    todo={t}
+                    key={t.id}
+                    toggle={(e) => toggle(e, t.id!)}
+                  />
+                );
+              }
+            })}
           </ul>
         </div>
         <div>
           <h2>Saker som är gjorda:</h2>
-          <ul></ul>
+          <ul>
+            {todos.map((t) => {
+              if (t.done === true) {
+                return (
+                  <ShowTodo
+                    todo={t}
+                    key={t.id}
+                    toggle={(e) => toggle(e, t.id!)}
+                  />
+                );
+              }
+            })}
+          </ul>
         </div>
       </div>
       <AddTodo addTodo={addTodo} />
