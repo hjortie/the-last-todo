@@ -1,9 +1,16 @@
 form {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 
   button {
+    border: 3px solid transparent;
     align-self: flex-end;
     width: max-content;
+  }
+
+  button:hover {
+    border: 3px solid #ea7ba2;
+    transition: border 3ms;
   }
 }
