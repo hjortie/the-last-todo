@@ -1,3 +1,4 @@
+import "../styles/AddTodo.css";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { defaultValue, Todo } from "../models/Todo";
 
@@ -21,7 +22,7 @@ export const AddTodo = (props: AddTodoProp) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Vad ska göras?</label>
+        <label htmlFor="name">Vad mer ska göras?</label>
         <input
           type="text"
           id="name"
