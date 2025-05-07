@@ -3,14 +3,12 @@ form {
   flex-direction: column;
   gap: 0.5rem;
 
-  button {
-    border: 3px solid transparent;
-    align-self: flex-end;
-    width: max-content;
+  label {
+    font-size: large;
+    font-weight: 700;
   }
 
-  button:hover {
-    border: 3px solid #ea7ba2;
-    transition: border 3ms;
+  button {
+    align-self: flex-end;
   }
 }
