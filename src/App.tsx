@@ -4,7 +4,7 @@ import { TodoApp } from "./components/TodoApp";
 function App() {
   return (
     <>
-      <h1>I have s*** to do!</h1>
+      <h1>I have s**t to do!</h1>
       <TodoApp />
     </>
   );

@@ -25,14 +25,30 @@ export const TodoApp = () => {
     );
   };
 
+  const compare = (a: Todo, b: Todo) => {
+    const todoA = a.name.toLowerCase();
+    const todoB = b.name.toLowerCase();
+
+    let result = 0;
+
+    if (todoA > todoB) {
+      result = 1;
+    }
+    if (todoA < todoB) {
+      result = -1;
+    }
+    return result;
+  };
+
   return (
     <>
       <div className="todos-container">
         <div>
           <h2>Saker att göra:</h2>
           <ul>
-            {todos.map((t) => {
-              if (t.done === false) {
+            {todos
+              .filter((t) => !t.done)
+              .map((t) => {
                 return (
                   <ShowTodo
                     todo={t}
@@ -40,15 +56,15 @@ export const TodoApp = () => {
                     toggle={(e) => toggle(e, t.id!)}
                   />
                 );
-              }
-            })}
+              })}
           </ul>
         </div>
         <div>
           <h2>Saker som är gjorda:</h2>
           <ul>
-            {todos.map((t) => {
-              if (t.done === true) {
+            {todos
+              .filter((t) => t.done)
+              .map((t) => {
                 return (
                   <ShowTodo
                     todo={t}
@@ -56,9 +72,18 @@ export const TodoApp = () => {
                     toggle={(e) => toggle(e, t.id!)}
                   />
                 );
-              }
-            })}
+              })}
           </ul>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              const sortedTodos = [...todos].sort(compare);
+              setTodos(sortedTodos);
+            }}
+          >
+            Sortera A-Ö
+          </button>
         </div>
       </div>
       <AddTodo addTodo={addTodo} />
