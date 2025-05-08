@@ -1,4 +1,4 @@
-import "../styles/TodoApp.css";
+import "../index.css";
 import { ChangeEvent, useState } from "react";
 import { Todo } from "../models/Todo";
 import { ShowTodo } from "./ShowTodo";
@@ -42,9 +42,12 @@ export const TodoApp = () => {
 
   return (
     <>
-      <div className="todos-container">
-        <div>
-          <h2>Saker att göra:</h2>
+      <h1 className="p-8 text-white text-6xl font-extrabold border-6 rounded-4xl">
+        I have s**t to do!
+      </h1>
+      <div className="flex flex-col md:justify-between md:flex-row gap-12 lg:gap-18 ">
+        <div className="w-fit h-full m-auto">
+          <h2 className="text-2xl text-center font-bold">Saker att göra:</h2>
           <ul>
             {todos
               .filter((t) => !t.done)
@@ -59,8 +62,10 @@ export const TodoApp = () => {
               })}
           </ul>
         </div>
-        <div>
-          <h2>Saker som är gjorda:</h2>
+        <div className="w-fit h-full m-auto">
+          <h2 className="text-2xl text-center font-bold">
+            Saker som är gjorda:
+          </h2>
           <ul>
             {todos
               .filter((t) => t.done)
@@ -75,17 +80,19 @@ export const TodoApp = () => {
               })}
           </ul>
         </div>
-        <div>
-          <button
-            onClick={() => {
-              const sortedTodos = [...todos].sort(compare);
-              setTodos(sortedTodos);
-            }}
-          >
-            Sortera A-Ö
-          </button>
-        </div>
       </div>
+      <div>
+        <button
+          onClick={() => {
+            const sortedTodos = [...todos].sort(compare);
+            setTodos(sortedTodos);
+          }}
+          className="rounded-md self-baseline bg-[#f9f9f9] ring-4 ring-transparent p-2 hover:ring-[#ea7ba2]"
+        >
+          Sortera A-Ö
+        </button>
+      </div>
+
       <AddTodo addTodo={addTodo} />
     </>
   );

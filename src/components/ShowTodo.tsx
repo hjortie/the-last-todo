@@ -1,12 +1,12 @@
-import "../styles/ShowTodo.css";
+import "../index.css";
 import { TodoProp } from "../models/Todo";
 
 export const ShowTodo = (props: TodoProp) => {
   return (
     <>
-      <li>
+      <li className="text-left">
         <input
-          className="done-checkbox"
+          className="accent-[#ea7ba2] mr-3"
           type="checkbox"
           checked={props.todo.done}
           onChange={(e) => {
