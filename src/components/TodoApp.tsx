@@ -12,10 +12,24 @@ export const TodoApp = () => {
     new Todo("Repetera", false, 4),
   ];
 
-  const [todos, setTodos] = useState<Todo[]>(defaultTodos);
+  const getUserTodos = (): Todo[] => {
+    const foundUserTodos = localStorage.getItem("user_todos");
+    if (foundUserTodos) {
+      const parsedFoundUserTodos: Todo[] = JSON.parse(foundUserTodos);
+      if (Array.isArray(parsedFoundUserTodos)) {
+        return parsedFoundUserTodos;
+      }
+    }
+    return defaultTodos;
+  };
+
+  const [todos, setTodos] = useState<Todo[]>(getUserTodos);
 
   const addTodo = (newTodo: Todo) => {
-    setTodos([...todos, new Todo(newTodo.name, newTodo.done, newTodo.id)]);
+    const userTodo = new Todo(newTodo.name, newTodo.done, newTodo.id);
+    const updatedTodos = [...todos, userTodo];
+    localStorage.setItem("user_todos", JSON.stringify(updatedTodos));
+    setTodos(updatedTodos);
   };
 
   const toggle = (e: ChangeEvent<HTMLInputElement>, id: number) => {
